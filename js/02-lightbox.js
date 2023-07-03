@@ -15,14 +15,6 @@ const createGalleryItemsMarkup = ({ preview, original, description }) => {
 const galleryItemsMarkup = galleryItems.map(item => createGalleryItemsMarkup(item)).join('');
 
 galleryEl.insertAdjacentHTML('afterbegin', galleryItemsMarkup);
-galleryEl.addEventListener('click', handlerClickImg);
 
-function handlerClickImg (evt) {
-    evt.preventDefault();
+var lightbox = new SimpleLightbox('.gallery a', {captionsData:'alt', captionDelay:250,});
 
-    if (evt.target === galleryEl) {
-        return;
-    }
-
-    var lightbox = new SimpleLightbox('.gallery a', {captionsData:'alt', captionDelay:250,});
-}
